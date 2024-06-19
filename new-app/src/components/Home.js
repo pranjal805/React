@@ -1,87 +1,46 @@
 import React from 'react';
 import Table from './Table';
-const data = [
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    { id: 1, name: 'John Doe', age: 28, city: 'New York' },
-    { id: 3, name: 'Jane Smith', age: 34, city: 'Los Angeles' },
-    { id: 3, name: 'Michael Johnson', age: 45, city: 'Chicago' },
-    { id: 4, name: 'Sara Wilson', age: 29, city: 'Miami' },
-    { id: 5, name: 'David Brown', age: 41, city: 'Seattle' },
-    { id: 6, name: 'Linda Green', age: 36, city: 'Boston' },
-    { id: 7, name: 'James White', age: 50, city: 'San Francisco' },
-    { id: 8, name: 'Patricia Black', age: 33, city: 'Denver' },
-    { id: 9, name: 'Robert Young', age: 39, city: 'Austin' },
-    { id: 10, name: 'Mary Blue', age: 42, city: 'Houston' },
-    // Add more records as needed
-  ];
-  
-const columns = ['id', 'name', 'age', 'city'];
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 const Home = () => {
+    const data1 = [
+        {
+            key: 'creationAt',
+            name: 'Creation At',
+        },
+    ];
+    const [data, setData] = useState([]);
+    const [totalRecords, setTotalRecords] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const recordsPerPage = 3;
+    
+    const fetchData = async (page) => {
+        // Replace with your API endpoint
+        const response = await fetch(`https://api.escuelajs.co/api/v1/products?offset=${page}&limit=${recordsPerPage}`, {
+            method: 'GET',
+        }).then((res) => res.json());
+        console.log('aaaa', response);
+        setData(response); // Assuming the API returns data in the 'data' field
+        setTotalRecords(response?.totalRecords); // Assuming the API returns total number of records in 'totalRecords'
+      };
+    
+      useEffect(() => {
+        fetchData(currentPage);
+      }, [currentPage]);
   return (
     <div className="main-content">
-      <h1>Welcome to My Company</h1>
       <h1>Table with Pagination</h1>
-      <Table data={data} columns={columns} pagination={true} recordsPerPage={5} totalRecords={data.length} />
-      <p>Test.</p>
+      <Table
+        data={data}
+        // columns={['id', 'name', 'age', 'city','description','creationAt']}
+        columns={data1}
+        pagination={false}
+        recordsPerPage={recordsPerPage}
+        totalRecords={totalRecords}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

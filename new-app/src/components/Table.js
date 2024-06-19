@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../Css/Table.css';
 
-const Table = ({ data, columns, pagination, recordsPerPage, totalRecords }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+const Table = ({ data, columns, pagination, recordsPerPage, totalRecords, currentPage, onPageChange }) => {
+const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     if (pagination) {
@@ -14,7 +13,7 @@ const Table = ({ data, columns, pagination, recordsPerPage, totalRecords }) => {
   }, [totalRecords, pagination, recordsPerPage]);
 
   const handleClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    onPageChange(pageNumber);
   };
 
   const renderTableHeader = () => {
@@ -22,22 +21,20 @@ const Table = ({ data, columns, pagination, recordsPerPage, totalRecords }) => {
       <>
         <th>Serial No.</th>
         {columns.map((column) => (
-          <th key={column}>{column}</th>
+          <th key={column.key}>{column.name}</th>
         ))}
       </>
     );
   };
-
   const renderTableData = () => {
     const startIndex = (currentPage - 1) * recordsPerPage;
-    const endIndex = startIndex + recordsPerPage;
-    const displayedData = pagination ? data.slice(startIndex, endIndex) : data;
+    const displayedData = pagination ? data : data.slice(startIndex, startIndex + recordsPerPage);
 
-    return displayedData.map((row, index) => (
+    return displayedData?.map((row, index) => (
       <tr key={index}>
         <td>{startIndex + index + 1}</td>
         {columns.map((column) => (
-          <td key={column}>{row[column]}</td>
+          <td key={column.name}>{row[column.key]}</td>
         ))}
       </tr>
     ));
