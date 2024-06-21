@@ -63,11 +63,11 @@ body {
   margin-top: 60px; /* height of the navbar */
 }
 
-.content {
-  margin-left: 200px; /* width of the sidebar */
+/* .content {
+  margin-left: 200px;
   padding: 2rem;
   width: calc(100% - 200px);
-}
+} */
 
 .main-content {
   padding: 2rem;

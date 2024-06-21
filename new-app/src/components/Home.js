@@ -1,7 +1,9 @@
 import React from 'react';
+import landscapeImage from '../assets/pexels-bri-schneiter-28802-346529.jpg'
 import Table from './Table';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { PaginationAPI } from '../config/constants';
 
 const Home = () => {
     const data1 = [
@@ -17,31 +19,37 @@ const Home = () => {
     
     const fetchData = async (page) => {
         // Replace with your API endpoint
-        const response = await fetch(`https://api.escuelajs.co/api/v1/products?offset=${page}&limit=${recordsPerPage}`, {
+        const response = await fetch(`${PaginationAPI}?offset=${page}&limit=${recordsPerPage}`, {
             method: 'GET',
         }).then((res) => res.json());
-        console.log('aaaa', response);
         setData(response); // Assuming the API returns data in the 'data' field
         setTotalRecords(response?.totalRecords); // Assuming the API returns total number of records in 'totalRecords'
       };
-    
       useEffect(() => {
         fetchData(currentPage);
       }, [currentPage]);
   return (
-    <div className="main-content">
-      <h1>Table with Pagination</h1>
+   <> 
+   <div style={{
+      position: 'absolute',
+      top: '45%',
+      left: '35%',
+      transform: 'translate(-50%, -50%)'
+    }}>
+       <img src={landscapeImage} alt="Example" style={{ width: '100%', height: 'auto', opacity: 'inherit'}}/>
+    </div>
+    <div>
       <Table
         data={data}
-        // columns={['id', 'name', 'age', 'city','description','creationAt']}
         columns={data1}
-        pagination={false}
+        pagination={true}
         recordsPerPage={recordsPerPage}
         totalRecords={totalRecords}
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
     </div>
+    </>
   );
 };
 
