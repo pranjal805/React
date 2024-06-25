@@ -14,7 +14,7 @@ const Signin = () => {
       event.preventDefault();
       try {
         const data = await dispatch(login({ username: email, password: password }));
-        data && data?.payload?.roles && data?.payload?.roles.includes('ADMIN') ? navigate('/about'):navigate('/home');
+        data && data?.payload?.roles && data?.payload?.roles.includes('ADMIN') ? navigate('/admin/dashboard'):navigate('/home');
       } catch (error) {
         console.error('Login error:', error);
       }

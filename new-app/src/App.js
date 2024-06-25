@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import AdminDashboard from './pages/dashboards/adminDashboard/AdminDashboard';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -26,6 +27,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<Signin/>} />
+              <Route path="/admin/dashboard" element={<AdminDashboard/>} />
             </Routes>
           </div>
         </div>
